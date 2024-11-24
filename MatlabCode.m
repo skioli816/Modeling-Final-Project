@@ -1,4 +1,4 @@
-% Sarah's PS5 Code that doesn't bug but is also definitely wrong 
+% Sarah's PS5 Code that doesn't bug but is also definitely wrong (Part (a)) 
 % Set Parameters 
 u = 1 ; % m/s 
 x = [0:1:2e3] ; % km 
