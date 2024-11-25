@@ -1,4 +1,5 @@
 %% ROUGH DRAFT OF OUR CODE 
+% By Aya Kanawati and Sarah Scioli 
 
 % Set Parameters 
 g = 9.81 ; % gravity (m/s^2) 
