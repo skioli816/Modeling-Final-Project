@@ -67,5 +67,3 @@ for i = 1:n
     Aarray(:, 363) = Anew(:, i) ; 
     A = Anew ; 
 end 
-
-% FYI I had no idea how to do the Neuman boundary conditions so that part I totally was winging it 
