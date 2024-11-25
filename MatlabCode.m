@@ -1,3 +1,5 @@
+%% ROUGH DRAFT OF OUR CODE 
+
 % Set Parameters 
 g = 9.81 ; % gravity (m/s^2) 
 S = 0.1 ; % bed slope (m/m) 
