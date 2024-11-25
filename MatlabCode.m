@@ -8,10 +8,10 @@ beta = sqrt(g*S/Cf) ; % (m^1/2 / s)
 
 % Time Steps 
 t0 = 0 ; % initial time (s)
-dt = 3600 ; % time step (s) 
-tf = 1.21e6 ; % total time (s) 
+dt = 1 ; % time step (s) 
+tf = 336 ; % total time (s) 
 n = tf/dt ; % number of time steps 
-t = nan.*ones(1, tf) 
+t = nan.*ones(1, tf) ; 
 t(1) = t0 ; 
 for j = 1:n 
     t(j) = t0 + n*dt ; 
@@ -32,7 +32,13 @@ end
 C = (u*dt) / dx ; % Courant Number (Fraction of space step that a signal has traveled during a time step) 
 
 % Define Variables 
-h = ; % lahar thickness (m) 
+h0 = 10 ; 
+h = zeros(m, length(t)) ; % lahar thickness (m) 
+for j = 1:n 
+    for i = 1:m
+        h(j, i) = h0*sin(10*3.1415*(x(i) - t(j))) ;  
+    end 
+end 
 v = beta*sqrt(h) ; % vertical velocity (m/s)
 q = v*h ; % volumetric flow rate (m^3 / s) 
 
