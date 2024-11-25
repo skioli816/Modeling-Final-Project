@@ -45,9 +45,9 @@ Aarray(1:n, 1) = (((2e3) / dx) - 1)*s ;
 A = Aarray(:, 1) ; 
 
 % Evolution Matrix 
-data = [C*ones(n), (1-C)*ones(n)] ; 
+data = [C*ones(m), (1-C)*ones(m)] ; 
 diags = [-1, 0] ; 
-M = spdiags(data, diags, n, m) ; 
+M = spdiags(data, diags, m, n) ; 
 
 % Set Boundary Conditions 
 M(1, 1) = s ; 
