@@ -46,8 +46,8 @@ q = v*h ; % volumetric flow rate (m^3 / s)
 % (dh/dt) + beta*k*(h^(k-1))*(dh/dx) = 0 ; 
 
 % Preallocate 
-Aarray = nan.*ones(n, m) ; 
-Aarray(1:n, 1) = (((2e3) / dx) - 1)*s ; 
+Aarray = nan.*ones(m, n) ; 
+Aarray(1:m, 1) = (((5000) / dx) - 1)*beta ; 
 A = Aarray(:, 1) ; 
 
 % Evolution Matrix 
@@ -56,13 +56,13 @@ diags = [-1, 0] ;
 M = spdiags(data, diags, m, n) ; 
 
 % Set Boundary Conditions 
-M(1, 1) = s ; 
-M(2e3, 1000) = s ; 
+M(1, 1) = beta ; 
+M(5000, 363) = beta ; 
 
 % Model Loop 
 for i = 1:n   
     Anew = (A).* M ; 
-    Aarray(:, 1000) = Anew(:, 212) ; 
+    Aarray(:, 363) = Anew(:, i) ; 
     A = Anew ; 
 end 
 
