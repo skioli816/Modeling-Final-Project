@@ -1,12 +1,14 @@
 % Set Parameters 
 g = 9.81 ; % gravity (m/s^2) 
-S = ; % bed slope 
+S = 1e-5; % bed slope (m/m) 
 Cf = 1 ; % drag coefficient 
 k = 1.5 ; 
-h = ; % lahar thickness (m) 
-u = ; % horizontal velocity (m/s) 
+u = 0.536; % horizontal velocity (m/s) 
 beta = sqrt(g*S/Cf) ; % (m^1/2 / s) 
-v = beta*sqrt(h) ; vertical velocity (m/s)
+
+% Define Variables 
+h = ; % lahar thickness (m) 
+v = beta*sqrt(h) ; % vertical velocity (m/s)
 q = v*h ; % volumetric flow rate (m^3 / s) 
 
 % Time Steps 
