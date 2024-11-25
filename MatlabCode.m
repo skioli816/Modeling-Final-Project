@@ -28,7 +28,6 @@ for i = 1:m
     x(i+1) = x0 + i*dx ; 
 end    
 
-
 % Space Relative to Time 
 C = (u*dt) / dx ; % Courant Number (Fraction of space step that a signal has traveled during a time step) 
 
@@ -36,7 +35,6 @@ C = (u*dt) / dx ; % Courant Number (Fraction of space step that a signal has tra
 h = ; % lahar thickness (m) 
 v = beta*sqrt(h) ; % vertical velocity (m/s)
 q = v*h ; % volumetric flow rate (m^3 / s) 
-
 
 % Primary Equation 
 % (dh/dt) + beta*k*(h^(k-1))*(dh/dx) = 0 ; 
@@ -56,7 +54,7 @@ M(1, 1) = s ;
 M(2e3, 1000) = s ; 
 
 % Model Loop 
-for i = 1:m   
+for i = 1:n   
     Anew = (A).* M ; 
     Aarray(:, 1000) = Anew(:, 212) ; 
     A = Anew ; 
