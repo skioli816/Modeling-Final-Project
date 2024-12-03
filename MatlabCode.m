@@ -13,10 +13,10 @@ h0 = 10 ; % initial lahar thickness (m)
 x0 = 0 ; % initial space (m) 
 dx = 1 ; % space step (m) 
 L = 5000 ; % length of domain (m) 
-m = L/dx ; % number of space steps 
+n = L/dx ; % number of space steps 
 x = nan.*ones(1, L) ; 
 x(1) = x0 ; 
-for i = 1:m 
+for i = 1:n 
     x(i+1) = x0 + i*dx ; 
 end    
 
@@ -24,11 +24,11 @@ end
 t0 = 0 ; % initial time (s)
 dt = 1 ; % time step (s) 
 tf = 336 ; % total time (s) 
-n = tf/dt ; % number of time steps 
+m = tf/dt ; % number of time steps 
 t = nan.*ones(1, tf) ; 
 t(1) = t0 ; 
-for j = 1:n 
-    t(j) = t0 + n*dt ; 
+for j = 1:m 
+    t(j) = t0 + m*dt ; 
 end 
 
 % Space Relative to Time 
@@ -36,10 +36,11 @@ end
 % C = (u*dt) / dx ; % Courant Number (Fraction of space step that a signal has traveled during a time step) 
 
 % Preallocate 
-h = ; 
-u = ; 
-h(1) = h0 ; 
-u(1) = beta*k*(h(1)^(k-1)) ; 
+h = NaN(m, 1) ; 
+u = NaN(m, 1) ; 
+h(:, 1) = h0 ; 
+u(:, 1) = beta*k*(h(1)^(k-1)) ; 
+M = NaN(m, m) ; 
 
 % Primary Equations 
 % (dh/dt) + beta*k*(h^(k-1))*(dh/dx) = 0 ; 
@@ -49,13 +50,15 @@ u(1) = beta*k*(h(1)^(k-1)) ;
 
 
 % For Loop (FE Method) 
-for l = 
+for l = 2:m 
     u(l) = beta*k*(h(l)^(k-1)) ; 
-    h(l+1) = h(l) - (dt/dx)*((h(l)*u(l)) - (h(l-1)*u(l-1)) ; 
+    % h(i, j+1) = h(i, j) - (dt/dx)*((h(i, j)*u(i, j)) - (h(i-1, j)*u(i-1, j)
+    M = diag(1 - (dt/dx)*u(l), 0) ; 
+    M = diag((dt/dx)*u(l - 1), -1) ; 
+    hnew = M.*h ; 
+    hall(:, l+1) = hnew ; 
+    h = hnew ; 
 end 
-
-% Solve Matrix Equation 
-% hk = D.*h ; 
 
 
 
