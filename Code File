@@ -31,7 +31,7 @@ for n=1 : nsteps
 
     %calc the FOU:scheme
     for i = 2 : N+2
-				velocity = beta * k * h(i)^(k-1) ; %nonlin velocity term
+			velocity = beta * k * h(i)^(k-1) ; %nonlin velocity term
         h_next(i)= h(i) - velocity*dt/dx*(h(i)-h(i-1)); 
     end
     %update t and u 
