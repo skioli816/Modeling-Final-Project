@@ -80,10 +80,6 @@ title('Lahar Open Channel Flow (Area Line)')
 xlabel('Lahar Thickness (m)') 
 ylabel('Time (hr)')
 
-figure 
-surf(hall) 
-title('Lahar Open Channel Flow (Surface)') 
-xlabel('Lahar Thickness (m)') 
-ylabel('Time (hr)') 
 
+% See file "Animation Code" for animated figure derived from this code 
 
