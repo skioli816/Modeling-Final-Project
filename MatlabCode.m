@@ -41,6 +41,8 @@ u = NaN(m, 1) ;
 h(:, 1) = h0 ; 
 u(:, 1) = beta*k*(h(1)^(k-1)) ; 
 M = NaN(m, m) ; 
+hall = NaN(m, m) ; 
+hall(:, 1) = h ; 
 
 % Primary Equations 
 % (dh/dt) + beta*k*(h^(k-1))*(dh/dx) = 0 ; 
@@ -48,18 +50,15 @@ M = NaN(m, m) ;
 % u = beta*k*(h^(k-1)) ; % horizontal velocity (m/s) 
 % Marching Equation = h(i, j+1) = h(i, j) - (dt/dx)*((h(i, j)*u(i, j)) - (h(i-1, j)*u(i-1, j) ; 
 
-
 % For Loop (FE Method) 
 for l = 2:m 
-    u(l) = beta*k*(h(l)^(k-1)) ; 
-    % h(i, j+1) = h(i, j) - (dt/dx)*((h(i, j)*u(i, j)) - (h(i-1, j)*u(i-1, j)
-    M = diag(1 - (dt/dx)*u(l), 0) ; 
-    M = diag((dt/dx)*u(l - 1), -1) ; 
-    hnew = M.*h ; 
+    u(l) = beta*k*((hall(1, l-1))^(k-1)) ; 
+    M = spdiags((1 - ((dt/dx)*(u(l, 1)))), 0, M) ; 
+    M = spdiags((dt/dx)*(u(l - 1, 1)), -1, M) ; 
+    hnew = M*h ; 
     hall(:, l+1) = hnew ; 
     h = hnew ; 
 end 
-
 
 
 
