@@ -52,7 +52,6 @@ plot_handle = plot(hall(:, 1), 'b-', 'LineWidth', 2); % Initial plot
 xlabel('Distance (m)');
 ylabel('Lahar Thickness (m)');
 title('Lahar Flow Evolution');
-grid on;
 ylim([0, 70]);
 xlim([1, 20]);
 
@@ -63,7 +62,7 @@ xlim([1, 20]);
 % Marching Equation = h(i, j+1) = h(i, j) - (dt/dx)*((h(i, j)*u(i, j)) - (h(i-1, j)*u(i-1, j) ; 
 
 % For Loop (FE Method) 
-for l = 2:m 
+for l = 2:m+1 %add the plus 1 to include tf = 336 
     u(l) = beta*k*((hall(1, l-1))^(k-1)) ; % calculate new velocity 
     M = spdiags([(dt/dx)*(u(l - 1, 1)), abs((1 - ((dt/dx)*(u(l, 1)))))], -1:0, m, m) ; % establish the diagonals
     hnew = M*h ; % calculate new h values 
