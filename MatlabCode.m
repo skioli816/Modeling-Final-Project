@@ -64,6 +64,26 @@ end
 % Plot 
 figure 
 plot(hall) 
-title('Lahar Open Channel Flow') 
+title('Lahar Open Channel Flow (Line Plot)') 
 xlabel('Distance (m)') 
 ylabel('Time (hr)')
+
+figure 
+contour(hall)
+title('Lahar Open Channel Flow (Countour)') 
+xlabel('Distance (m)') 
+ylabel('Time (hr)')
+
+figure 
+area(hall) 
+title('Lahar Open Channel Flow (Area Line)') 
+xlabel('Distance (m)') 
+ylabel('Time (hr)')
+
+figure 
+surf(hall) 
+title('Lahar Open Channel Flow (Surface)') 
+xlabel('Distance (m)') 
+ylabel('Time (hr)') 
+
+
