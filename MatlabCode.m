@@ -39,8 +39,8 @@ end
 h = NaN(m, 1) ; 
 u = NaN(m, 1) ; 
 h(:, 1) = h0 ; 
-u(:, 1) = beta*k*(h(1)^(k-1)) ; 
-M = NaN(m, m) ; 
+u(:, 1) = beta*k*((h(1, 1))^(k-1)) ; 
+% M = NaN(m, m) ; 
 hall = NaN(m, m) ; 
 hall(:, 1) = h ; 
 
@@ -53,18 +53,12 @@ hall(:, 1) = h ;
 % For Loop (FE Method) 
 for l = 2:m 
     u(l) = beta*k*((hall(1, l-1))^(k-1)) ; 
-    M = spdiags((1 - ((dt/dx)*(u(l, 1)))), 0, M) ; 
-    M = spdiags((dt/dx)*(u(l - 1, 1)), -1, M) ; 
+    M = spdiags([(dt/dx)*(u(l - 1, 1)), abs((1 - ((dt/dx)*(u(l, 1)))))], -1:0, m, m) ; 
     hnew = M*h ; 
-    hall(:, l+1) = hnew ; 
+    hall(:, l) = hnew ; 
     h = hnew ; 
 end 
 
-
-
-
-
-
-
-
-
+% Plot 
+figure 
+plot(hall) 
