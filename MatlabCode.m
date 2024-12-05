@@ -1,6 +1,8 @@
 %% FINAL PROJECT CODE 
 % By Aya Kanawati and Sarah Scioli 
 
+close all 
+
 % Set Parameters 
 g = 9.81 ; % gravity (m/s^2) 
 S = 0.1 ; % bed slope (m/m) 
@@ -21,9 +23,9 @@ for i = 1:n
 end    
 
 % Time Steps 
-t0 = 0 ; % initial time (s)
-dt = 1 ; % time step (s) 
-tf = 336 ; % total time (s) 
+t0 = 0 ; % initial time (hr)
+dt = 1 ; % time step (hr) 
+tf = 336 ; % total time (hr) 
 m = tf/dt ; % number of time steps 
 t = nan.*ones(1, tf) ; 
 t(1) = t0 ; 
@@ -63,7 +65,5 @@ end
 figure 
 plot(hall) 
 title('Lahar Open Channel Flow') 
-xlabel('distance') 
-ylabel('time')
-
-
+xlabel('Distance (m)') 
+ylabel('Time (hr)')
