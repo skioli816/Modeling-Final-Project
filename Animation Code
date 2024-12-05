@@ -73,5 +73,3 @@ for l = 2:m+1 %add the plus 1 to include tf = 336
     title(sprintf('Lahar Flow Evolution at t = %.3f',(l-1) * dt)); % update the title with the current time
     pause(0.01); % Pause for animation effect
 end 
-
-% Plot 
