@@ -62,3 +62,8 @@ end
 % Plot 
 figure 
 plot(hall) 
+title('Lahar Open Channel Flow') 
+xlabel('distance') 
+ylabel('time')
+
+
