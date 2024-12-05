@@ -7,7 +7,7 @@ close all
 g = 9.81 ; % gravity (m/s^2) 
 S = 0.1 ; % bed slope (m/m) 
 Cf = 10 ; % drag coefficient 
-k = 1.5 ; 
+k = 1.5 ; % value taken from paper 
 beta = sqrt(g*S/Cf) ; % (m^1/2 / s) 
 h0 = 10 ; % initial lahar thickness (m) 
 
@@ -40,8 +40,8 @@ end
 % Preallocate 
 h = NaN(m, 1) ; 
 u = NaN(m, 1) ; 
-h(:, 1) = h0 ; 
-u(:, 1) = beta*k*((h(1, 1))^(k-1)) ; 
+h(:, 1) = h0 ; % initial h condition 
+u(:, 1) = beta*k*((h(1, 1))^(k-1)) ; % initial velocity condition 
 % M = NaN(m, m) ; 
 hall = NaN(m, m) ; 
 hall(:, 1) = h ; 
@@ -54,11 +54,11 @@ hall(:, 1) = h ;
 
 % For Loop (FE Method) 
 for l = 2:m 
-    u(l) = beta*k*((hall(1, l-1))^(k-1)) ; 
-    M = spdiags([(dt/dx)*(u(l - 1, 1)), abs((1 - ((dt/dx)*(u(l, 1)))))], -1:0, m, m) ; 
-    hnew = M*h ; 
-    hall(:, l) = hnew ; 
-    h = hnew ; 
+    u(l) = beta*k*((hall(1, l-1))^(k-1)) ; % calculate new velocity 
+    M = spdiags([(dt/dx)*(u(l - 1, 1)), abs((1 - ((dt/dx)*(u(l, 1)))))], -1:0, m, m) ; % establish the diagonals
+    hnew = M*h ; % calculate new h values 
+    hall(:, l) = hnew ; % save h values in matrix 
+    h = hnew ; % save new h value for next loop 
 end 
 
 % Plot 
