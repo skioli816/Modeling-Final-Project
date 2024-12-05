@@ -71,7 +71,7 @@ for l = 2:m
     h = hnew ; % save new h value for next loop 
     
     set(plot_handle, 'YData', h); % Update the data in the plot
-    title(sprintf('Lahar Flow Evolution at t = %.3f',(l-1) * dt)); % Update the title with the current time
+    title(sprintf('Lahar Flow Evolution at t = %.3f',(l-1) * dt)); % update the title with the current time
     pause(0.01); % Pause for animation effect
 end 
 
