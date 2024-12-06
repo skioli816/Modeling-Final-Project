@@ -81,6 +81,7 @@ title('Lahar Open Channel Flow (Histogram)')
 ylabel('Lahar Thickness (m)') 
 xlabel('Distance (m)')
 
+
 % See file "Animation Code" for animated figure derived from this code 
 % Video Link: https://youtu.be/OGF3KV5deGA 
 % Link to Paper: https://docs.google.com/document/d/1wQVWXo_nl83C7LFNDUNKt2my7z1piMQpm6c6GcvmDr8/edit?tab=t.0 
