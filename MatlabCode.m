@@ -65,20 +65,20 @@ end
 figure 
 plot(hall) 
 title('Lahar Open Channel Flow (Line Plot)') 
-xlabel('Lahar Thickness (m)') 
-ylabel('Distance (m)')
+ylabel('Lahar Thickness (m)') 
+xlabel('Distance (m)')
 
 figure 
 contour(hall)
 title('Lahar Open Channel Flow (Countour)') 
-xlabel('Lahar Thickness (m)') 
-ylabel('Distance (m)')
+ylabel('Lahar Thickness (m)') 
+xlabel('Distance (m)')
 
 figure 
 area(hall) 
 title('Lahar Open Channel Flow (Area Line)') 
-xlabel('Lahar Thickness (m)') 
-ylabel('Distance (m)')
+ylabel('Lahar Thickness (m)') 
+xlabel('Distance (m)')
 
 
 % See file "Animation Code" for animated figure derived from this code 
