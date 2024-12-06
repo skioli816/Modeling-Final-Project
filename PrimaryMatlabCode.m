@@ -1,3 +1,6 @@
+% Video Link: https://youtu.be/OGF3KV5deGA 
+% Link to Paper: https://docs.google.com/document/d/1wQVWXo_nl83C7LFNDUNKt2my7z1piMQpm6c6GcvmDr8/edit?tab=t.0 
+
 %% FINAL PROJECT CODE 
 % By Aya Kanawati and Sarah Scioli 
 
@@ -83,6 +86,4 @@ xlabel('Distance (m)')
 
 
 % See file "Animation Code" for animated figure derived from this code 
-% Video Link: https://youtu.be/OGF3KV5deGA 
-% Link to Paper: https://docs.google.com/document/d/1wQVWXo_nl83C7LFNDUNKt2my7z1piMQpm6c6GcvmDr8/edit?tab=t.0 
 % MatlabLive version available for download in the LiveFile file, but GitHub would not allow a Matlab Live file to be viewed online
