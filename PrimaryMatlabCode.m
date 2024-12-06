@@ -69,17 +69,17 @@ ylabel('Lahar Thickness (m)')
 xlabel('Distance (m)')
 
 figure 
-pcolor(hall)
-title('Lahar Open Channel Flow (Surface)') 
+plot(hall)
+title('Lahar Open Channel Flow (Focused Line Plot)') 
 ylabel('Lahar Thickness (m)') 
 xlabel('Distance (m)')
+xlim([0, 20]) 
 
 figure 
 histogram(hall) 
 title('Lahar Open Channel Flow (Histogram)') 
 ylabel('Lahar Thickness (m)') 
 xlabel('Distance (m)')
-
 
 % See file "Animation Code" for animated figure derived from this code 
 % Video Link: https://youtu.be/OGF3KV5deGA 
