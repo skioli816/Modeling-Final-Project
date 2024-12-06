@@ -69,14 +69,14 @@ ylabel('Lahar Thickness (m)')
 xlabel('Distance (m)')
 
 figure 
-contour(hall)
-title('Lahar Open Channel Flow (Countour)') 
+pcolor(hall)
+title('Lahar Open Channel Flow (Surface)') 
 ylabel('Lahar Thickness (m)') 
 xlabel('Distance (m)')
 
 figure 
-area(hall) 
-title('Lahar Open Channel Flow (Area Line)') 
+histogram(hall) 
+title('Lahar Open Channel Flow (Histogram)') 
 ylabel('Lahar Thickness (m)') 
 xlabel('Distance (m)')
 
